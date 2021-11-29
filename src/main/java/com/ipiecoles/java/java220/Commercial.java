@@ -20,6 +20,7 @@ public class Commercial extends Employe{
                       Double caAnnuel, Integer performance) {
         this(nom, prenom, matricule, dateEmbauche, salaire, caAnnuel);
         this.performance = performance;
+
     }
 
     public Double getPrimeAnnuelle() {
