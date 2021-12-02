@@ -1,6 +1,5 @@
 package com.ipiecoles.java.java220;
 
-import org.joda.time.DateTime;
 import org.joda.time.LocalDate;
 
 import java.util.Objects;
@@ -19,22 +18,29 @@ public abstract class Employe {
 
     private Double salaire = Entreprise.SALAIRE_BASE;
 
+    private Boolean tempsPartiel;
+
+    private String sexe;
+
+
     public Employe() {
 
     }
 
-    public Employe(String nom, String prenom, String matricule, LocalDate dateEmbauche, Double salaire) {
+    public Employe(String nom, String prenom, String matricule, LocalDate dateEmbauche, Double salaire, Boolean tempsPartiel, String sexe) {
         this.nom = nom;
         this.prenom = prenom;
         this.matricule = matricule;
         this.dateEmbauche = dateEmbauche;
         this.salaire = salaire;
+        this.tempsPartiel=tempsPartiel;
+        this.sexe=sexe;
     }
     public final Integer getNombreAnneeAnciennete() {
         return LocalDate.now().getYear() - dateEmbauche.getYear();
     }
 
-    public Integer getNbConges() {
+    public double getNbConges() {
         return Entreprise.NB_CONGES_BASE;
     }
 
@@ -78,10 +84,15 @@ public abstract class Employe {
     public Double getSalaire() {
         return salaire;
     }
-
     public void setSalaire(Double salaire) {
         this.salaire = salaire;
     }
+
+    public Boolean getTempsPartiel() {return tempsPartiel;}
+    public void setTempsPartiel(Boolean tempsPartiel) {this.tempsPartiel = tempsPartiel; }
+
+    public String getSexe() {return sexe;}
+    public void setSexe(String sexe) {this.sexe = sexe; }
 
     @Override
     public String toString() {
@@ -91,6 +102,7 @@ public abstract class Employe {
         sb.append(", matricule='").append(matricule).append('\'');
         sb.append(", dateEmbauche=").append(dateEmbauche);
         sb.append(", salaire=").append(salaire);
+        sb.append(", sexe=").append(sexe);
         sb.append('}');
         return sb.toString();
     }
@@ -112,7 +124,7 @@ public abstract class Employe {
 
     @Override
     public int hashCode() {
-        return Objects.hash(nom, prenom, matricule, dateEmbauche, salaire);
+        return Objects.hash(nom, prenom, matricule, dateEmbauche, salaire, sexe);
     }
 
 

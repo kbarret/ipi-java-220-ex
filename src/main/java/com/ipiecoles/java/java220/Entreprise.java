@@ -13,7 +13,7 @@ public class Entreprise{
     public static final Double PRIME_ANCIENNETE = 100d;
 
     public static Double primeAnnuelleBase() {
-        return LocalDate.now().getYear() * 0.5;
+        return LocalDate.now().getYear() * Cadre.coefficient;
     }
 }
 

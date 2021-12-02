@@ -1,7 +1,5 @@
 package com.ipiecoles.java.java220;
 
-import com.ipiecoles.java.java220.Employe;
-import com.ipiecoles.java.java220.Entreprise;
 import org.joda.time.LocalDate;
 
 import java.util.Objects;
@@ -26,8 +24,8 @@ public class Technicien extends Employe implements Comparable<Technicien> {
 
     }
     @Override
-    public Integer getNbConges() {
-        return super.getNbConges() + this.getNombreAnneeAnciennete();
+    public double getNbConges() {
+        return super.getNbConges() + this.getNombreAnneeAnciennete() + Cadre.coefficient;
     }
 
     /**
